@@ -90,7 +90,10 @@
     try {
       const res = await fetch(`/search?question=${question}`, {
         method: "GET",
-      });
+        
+      })
+      .then(res => res.text())          // convert to plain text
+  .then(text => console.log(text))
       const data = await res.text();
 
       loadingDiv.innerHTML = ``;
