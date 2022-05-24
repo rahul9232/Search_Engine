@@ -1,0 +1,24 @@
+body {
+  /* background: rgb(231, 186, 117);  */
+  background-image: url("2270743.jpeg");
+  font-family: 'Montserrat', sans-serif;
+}
+.searchbar,.question{
+  padding-left: 40%;
+
+}
+
+.loading{
+  padding-left: 40.5%;
+
+}
+
+#question{
+  border-radius: 10px;
+}
+
+h2 {
+  color: white;
+  text-align: center;
+}
+
