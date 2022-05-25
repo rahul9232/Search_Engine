@@ -31,19 +31,19 @@ app.get('/search', (req, res) => {
 
   //TF-IDF ALgo
 
-/* const lin = require('line-reader')
+const lin = require('line-reader')
 var fs = require('fs')
 
 
-var keywords = fs.readFileSync('keywords.txt').toString().replace(/\r\n/g,'\n').split('\n')
+var keywords = fs.readFileSync('./keywords.txt').toString().replace(/\r\n/g,'\n').split('\n')
 
-var idf = fs.readFileSync('idf.txt').toString().replace(/\r\n/g,'\n').split('\n')
+var idf = fs.readFileSync('./idf.txt').toString().replace(/\r\n/g,'\n').split('\n')
 idf = idf.map(Number)
 
-var mag = fs.readFileSync('Magnitude.txt').toString().replace(/\r\n/g,'\n').split('\n')
+var mag = fs.readFileSync('./Magnitude.txt').toString().replace(/\r\n/g,'\n').split('\n')
 mag = mag.map(Number)
 
-var tf = fs.readFileSync('tfidf.txt').toString().replace(/\r\n/g,'\n').split('\n')
+var tf = fs.readFileSync('./tfidf.txt').toString().replace(/\r\n/g,'\n').split('\n')
 
 
 const rows=mag.length
@@ -137,36 +137,30 @@ final_ans.sort(function (a, b) {
       {
         title: prob_name[final_ans[0][1]],
         url: prob_url[final_ans[0][1]],
-        
+        statement: 'The sum of two elements.',
       },
       {
         title: prob_name[final_ans[1][1]],
         url: prob_url[final_ans[1][1]],
-       
+        statement: 'The sum of two elements.',
       },
       {
         title: prob_name[final_ans[2][1]],
         url: prob_url[final_ans[2][1]],
-        
+        statement: 'The sum of two elements.',
       },
       {
         title: prob_name[final_ans[3][1]],
         url: prob_url[final_ans[3][1]],
-        
+        statement: 'The sum of two elements.',
       },
       {
         title: prob_name[final_ans[4][1]],
         url: prob_url[final_ans[4][1]],
-        
+        statement: 'The sum of two elements.',
       },
-    ]*/
-    res.json([
-      { title: 'hello', url: 'https://www.google.com/' },
-      { title: 'hello', url: 'https://www.google.com/' },
-      { title: 'hello', url: 'https://www.google.com/' },
-      { title: 'hello', url: 'https://www.google.com/' },
-      { title: 'hello', url: 'https://www.google.com/' },
-    ])
+    ]
+    res.json(arr)
   })
   
 
