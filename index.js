@@ -31,7 +31,7 @@ app.get('/search', (req, res) => {
 
   //TF-IDF ALgo
 
-const lin = require('line-reader')
+/* const lin = require('line-reader')
 var fs = require('fs')
 
 
@@ -159,7 +159,7 @@ final_ans.sort(function (a, b) {
         url: prob_url[final_ans[4][1]],
         
       },
-    ]
+    ]*/
     res.json([
       { title: 'hello', url: 'https://www.google.com/' },
       { title: 'hello', url: 'https://www.google.com/' },
