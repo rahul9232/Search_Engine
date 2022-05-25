@@ -158,7 +158,7 @@ final_ans.sort(function (a, b) {
         title: prob_name[final_ans[4][1]],
         url: prob_url[final_ans[4][1]],
         statement: 'The sum of two elements.',
-      },
+      }
     ]
     res.json(arr)
   })
