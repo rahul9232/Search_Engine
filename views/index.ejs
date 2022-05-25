@@ -96,7 +96,8 @@
       loadingDiv.innerHTML = ``;
 
       for (let i = 0; i < 5; i++) {
-        titles[i].innerHTML = `<a href=${data[i].url} target="_blank">${data[i].title}</a>`;
+        //titles[i].innerHTML = `<a href=${data[i].url} target="_blank">${data[i].title}</a>`;
+        titles[i].innerHTML=`${data[i]}</a>`;
         console.log(data[i].url)
       }
     } catch (error) {
