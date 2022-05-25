@@ -118,8 +118,8 @@ for(let i=0;i<rows;i++)
   sim.push(simi)
 }
 //console.log(sim)
-var prob_name = fs.readFileSync('problem_titles.txt').toString().replace(/\r\n/g,'\n').split('\n')
-var prob_url = fs.readFileSync('problem_urls.txt').toString().replace(/\r\n/g,'\n').split('\n')
+var prob_name = fs.readFileSync('./problem_titles.txt').toString().replace(/\r\n/g,'\n').split('\n')
+var prob_url = fs.readFileSync('./problem_urls.txt').toString().replace(/\r\n/g,'\n').split('\n')
 
 final_ans=[]
 for(i=0;i<rows;i++)
