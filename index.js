@@ -137,27 +137,27 @@ final_ans.sort(function (a, b) {
       {
         title: prob_name[final_ans[0][1]],
         url: prob_url[final_ans[0][1]],
-        statement: 'The sum of two elements.',
+        
       },
       {
         title: prob_name[final_ans[1][1]],
         url: prob_url[final_ans[1][1]],
-        statement: 'The sum of two elements.',
+       
       },
       {
         title: prob_name[final_ans[2][1]],
         url: prob_url[final_ans[2][1]],
-        statement: 'The sum of two elements.',
+        
       },
       {
         title: prob_name[final_ans[3][1]],
         url: prob_url[final_ans[3][1]],
-        statement: 'The sum of two elements.',
+        
       },
       {
         title: prob_name[final_ans[4][1]],
         url: prob_url[final_ans[4][1]],
-        statement: 'The sum of two elements.',
+        
       },
     ]
     res.json(arr)
