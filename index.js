@@ -47,7 +47,7 @@ var mag = fs.readFileSync('./Magnitude.txt').toString().replace(/\r\n/g,'\n').sp
 mag = mag.map(Number)
 
 //var tf = fs.readFileSync('./TFIDF.txt').toString().replace(/\r\n/g,'\n').split('\n')
-var tf = fs.readFileSync('./tf.txt').toString().replace(/\r\n/g, '\n').split('\n')
+//var tf = fs.readFileSync('./tf.txt').toString().replace(/\r\n/g, '\n').split('\n')
 
 const rows=mag.length
 const cols=keywords.length
