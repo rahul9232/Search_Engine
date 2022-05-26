@@ -1,3 +1,20 @@
+const lin = require('line-reader')
+var fs = require('fs')
+
+
+var keywords = fs.readFileSync('./keywords.txt').toString().replace(/\r\n/g,'\n').split('\n')
+
+var idf = fs.readFileSync('./idf.txt').toString().replace(/\r\n/g,'\n').split('\n')
+idf = idf.map(Number)
+
+var mag = fs.readFileSync('./Magnitude.txt').toString().replace(/\r\n/g,'\n').split('\n')
+mag = mag.map(Number)
+
+var tf = fs.readFileSync('./tfidf.txt').toString().replace(/\r\n/g,'\n').split('\n')
+
+var prob_name = fs.readFileSync('./problem_titles.txt').toString().replace(/\r\n/g,'\n').split('\n')
+var prob_url = fs.readFileSync('./problem_urls.txt').toString().replace(/\r\n/g,'\n').split('\n')
+
 //Requiring the modules -> It should always be done on the top
 const express = require('express')
 const ejs = require('ejs') //View Engine
@@ -31,19 +48,7 @@ app.get('/search', (req, res) => {
 
   //TF-IDF ALgo
 
-const lin = require('line-reader')
-var fs = require('fs')
 
-
-var keywords = fs.readFileSync('./keywords.txt').toString().replace(/\r\n/g,'\n').split('\n')
-
-var idf = fs.readFileSync('./idf.txt').toString().replace(/\r\n/g,'\n').split('\n')
-idf = idf.map(Number)
-
-var mag = fs.readFileSync('./Magnitude.txt').toString().replace(/\r\n/g,'\n').split('\n')
-mag = mag.map(Number)
-
-var tf = fs.readFileSync('./tfidf.txt').toString().replace(/\r\n/g,'\n').split('\n')
 
 
 const rows=mag.length
@@ -118,8 +123,7 @@ for(let i=0;i<rows;i++)
   sim.push(simi)
 }
 //console.log(sim)
-var prob_name = fs.readFileSync('./problem_titles.txt').toString().replace(/\r\n/g,'\n').split('\n')
-var prob_url = fs.readFileSync('./problem_urls.txt').toString().replace(/\r\n/g,'\n').split('\n')
+
 
 final_ans=[]
 for(i=0;i<rows;i++)
