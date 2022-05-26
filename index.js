@@ -43,7 +43,7 @@ idf = idf.map(Number)
 var mag = fs.readFileSync('./Magnitude.txt').toString().replace(/\r\n/g,'\n').split('\n')
 mag = mag.map(Number)
 
-var tf = fs.readFileSync('./tfidf.txt').toString().replace(/\r\n/g,'\n').split('\n')
+var tf = fs.readFileSync('./TFIDF.txt').toString().replace(/\r\n/g,'\n').split('\n')
 
 
 const rows=mag.length
@@ -151,8 +151,8 @@ final_ans.sort(function (a, b) {
         url: prob_url[final_ans[3][1]]
       },
       {
-        title: prob_name[final_ans[4][1]],
-        url: prob_url[final_ans[4][1]]
+        title: prob_name[final_ans[0][1]],
+        url: prob_url[final_ans[0][1]]
       }
     ]
     res.json(arr)
