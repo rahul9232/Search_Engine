@@ -40,11 +40,14 @@ var keywords = fs.readFileSync('./keywords.txt').toString().replace(/\r\n/g,'\n'
 var idf = fs.readFileSync('./idf.txt').toString().replace(/\r\n/g,'\n').split('\n')
 idf = idf.map(Number)
 
+var len = fs.readFileSync('length.txt').toString().replace(/\r\n/g,'\n').split('\n')
+len = len.map(Number)
+
 var mag = fs.readFileSync('./Magnitude.txt').toString().replace(/\r\n/g,'\n').split('\n')
 mag = mag.map(Number)
 
-var tf = fs.readFileSync('./TFIDF.txt').toString().replace(/\r\n/g,'\n').split('\n')
-
+//var tf = fs.readFileSync('./TFIDF.txt').toString().replace(/\r\n/g,'\n').split('\n')
+var tf = fs.readFileSync('tf.txt').toString().replace(/\r\n/g, '\n').split('\n')
 
 const rows=mag.length
 const cols=keywords.length
@@ -66,7 +69,7 @@ for(var s=0;s<tf.length;s++)
   arrr = tf[s].split(' ')
   let i = parseInt(arrr[0])
   let j = parseInt(arrr[1])
-  let k = parseFloat(arrr[2])
+  let k = (parseInt(arrr[2]) * parseFloat(idf[j - 1])) / parseInt(len[i - 1])
   tfidf[i-1][j-1]=k;
 }
 query_str = question
@@ -151,8 +154,8 @@ final_ans.sort(function (a, b) {
         url: prob_url[final_ans[3][1]]
       },
       {
-        title: prob_name[final_ans[0][1]],
-        url: prob_url[final_ans[0][1]]
+        title: prob_name[final_ans[4][1]],
+        url: prob_url[final_ans[4][1]]
       }
     ]
     res.json(arr)
