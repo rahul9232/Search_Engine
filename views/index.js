@@ -65,14 +65,14 @@ for(let i=0;i<rows;i++)
 arrr=[]
 for(var s=0;s<tf.length;s++)
 {
-  tf[s]=tf[s].toLowerCase()
+  //tf[s]=tf[s].toLowerCase()
   arrr = tf[s].split(' ')
   let i = parseInt(arrr[0])
   let j = parseInt(arrr[1])
-  let k = (parseFloat(arrr[2]) * idf[j - 1]) / len[i - 1]
+  let k = (parseInt(arrr[2]) * parseFloat(idf[j - 1])) / parseInt(len[i - 1])
   tfidf[i-1][j-1]=k;
 }
-//query_str = question
+query_str = question
 
 stopwords=['don', "isn't", 'm', "hadn't", 'hers', 'above', "couldn't", 't', "shan't", 'y', 'here', "wouldn't", 'themselves', 'herself', 'all', 'then', 'if', 'only', 'our', 'now', 'has', 'won', "needn't", 'himself', 'from', 'you', 'her', 'of', 'there', 'your', 'll', 'we', 'are', 'at', 'wasn', 'on', "weren't", 'once', 'my', 'shouldn', 'because', 'into', 'than', 'ours', 'weren', 'his', "haven't", 'before', 'off', 'between', 'them', "shouldn't", 'nor', "you'd", 'after', "that'll", 'over', 'i', 'what', 're', 'haven', 'am', 'under', "doesn't", 'were', 'not', "hasn't", 've', 'why', 'against', 'most', 'but', 'in', 'didn', 'below', 'doesn', 'him', 's', 'its', 'too', 'down', 'further', 'again', 'those', 'be', "she's", "didn't", 'a', 'same', 'myself', 'it', 'was', 'been', 'each', 'some', 'does', 'during', 'had', 'wouldn', 'this', "don't", "wasn't", "you've", "it's", 'when', 'itself', 'more', 'such', 'that', 'up', 'yourselves', 'both', 'mustn', 'she', 'for', 'whom', 'an', 'while', 'needn', 'can', 'aren', 'very', 'isn', 'mightn', 'few', 'is', 'through', 'yours', "mightn't", 'couldn', 'who', 'being', 'any', 'until', 'will', 'ain', "won't", 'hadn', 'with', 'as', 'hasn', 'or', 'about', 'how', 'just', 'other', 'having', 'should', 'to', 'have', 'these', 'o', 'so', 'theirs', 'out', 'they', 'their', 'no', 'own', 'where', "you'll", 'he', 'did', 'which', "aren't", 'ma', 'by', "you're", 'the', 'do', 'and', 'd', 'yourself', 'me', "should've", "mustn't", 'doing', 'ourselves', 'shan','\n','\\n',',']
 
@@ -87,7 +87,7 @@ function remove_stopwords(str) {
   }
   return ress.join(' ')
 } 
-query_str = remove_stopwords(question)
+query_str = remove_stopwords(query_str)
 //console.log(query_str)
 var keyall_str=[]
 keyall_str = query_str.split(' ')
@@ -117,7 +117,7 @@ for(let i=0;i<rows;i++)
   {
     simi=simi+tfidf[i][j]*tfidf_str[j];
   }
-  simi = 10000*simi / (mag_tfidf_str*mag[i])
+  simi = simi / (mag_tfidf_str*mag[i])
   
   sim.push(simi)
 }
