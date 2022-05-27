@@ -117,7 +117,7 @@ for(let i=0;i<rows;i++)
   {
     simi=simi+tfidf[i][j]*tfidf_str[j];
   }
-  simi = 10000*simi / (mag_tfidf_str*mag[i])
+  simi = simi / (mag_tfidf_str*mag[i])
   
   sim.push(simi)
 }
